@@ -1,5 +1,8 @@
 {
-    "name": "dev-docs",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/@benji-devw"
+    },
+    "name": "@benji-devw/dev-docs",
     "private": true,
     "version": "0.0.0",
     "keywords": [],
