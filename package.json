@@ -1,10 +1,7 @@
 {
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org"
-    },
     "name": "@benji-devw/dev-docs",
     "private": false,
-    "version": "0.0.3",
+    "version": "0.0.4",
     "keywords": [],
     "author": "Ben",
     "license": "MIT",
@@ -25,8 +22,7 @@
         "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
         "test": "vitest run",
         "test-watch": "vitest",
-        "test:ui": "vitest --ui",
-        "prepare": "npm run build"
+        "test:ui": "vitest --ui"
     },
     "dependencies": {
         "react": "^18.3.1",
