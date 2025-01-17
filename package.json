@@ -1,7 +1,4 @@
 {
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    },
     "name": "@benji-devw/dev-docs",
     "private": false,
     "version": "0.0.5",
