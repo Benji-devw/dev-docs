@@ -2,7 +2,7 @@
     "publishConfig": {
         "registry": "https://registry.npmjs.org"
     },
-    "name": "dev-docs",
+    "name": "@benji-devw/dev-docs",
     "private": false,
     "version": "0.0.3",
     "keywords": [],
