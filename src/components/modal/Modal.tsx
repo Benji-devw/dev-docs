@@ -35,7 +35,7 @@ const StyledModal = styled.div<ModalProps>`
     }
 `;
 
-const Modal: React.FC<ModalProps> = ({ children, className, onClose }) => {
+export const Modal: React.FC<ModalProps> = ({ children, className, onClose }) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
     const handleClickOutside = React.useCallback(
@@ -72,4 +72,4 @@ const Modal: React.FC<ModalProps> = ({ children, className, onClose }) => {
     );
 };
 
-export default Modal;
+// export default Modal;
