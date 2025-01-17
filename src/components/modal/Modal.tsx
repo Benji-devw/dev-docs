@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 type ModalProps = {
     children: React.ReactNode;
     className?: string;
+    position?: "center" | "right" | "left";
     onClose?: () => void;
 };
 
@@ -13,11 +14,22 @@ const StyledModal = styled.div<ModalProps>`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+
+    &.center {
+        justify-content: center;
+        align-items: center;
+    }
+    &.right {
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+    &.left {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
     .modal {
         background-color: #fff;
         border-radius: 5px;
@@ -25,6 +37,12 @@ const StyledModal = styled.div<ModalProps>`
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
         width: 90%;
         max-width: 40rem;
+    }
+    .modal.right,
+    .modal.left {
+        height: 100%;
+        max-width: none;
+        width: 30%;
     }
     .modal-header {
         display: flex;
@@ -35,7 +53,7 @@ const StyledModal = styled.div<ModalProps>`
     }
 `;
 
-export const Modal: React.FC<ModalProps> = ({ children, className, onClose }) => {
+export const Modal: React.FC<ModalProps> = ({ children, className, position = "center", onClose }) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
     const handleClickOutside = React.useCallback(
@@ -46,30 +64,26 @@ export const Modal: React.FC<ModalProps> = ({ children, className, onClose }) =>
                 }
             }
         },
-        [onClose]
+        [onClose],
     );
 
     useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [handleClickOutside]);
 
     return (
-        <StyledModal>
-            <div className={`modal-warpper`}>
-                <div ref={modalRef} className='modal'>
-                    <div className="modal-header">
-                        <button className="close-modal-button" onClick={onClose}>
-                            X
-                        </button>
-                    </div>
-                    <div className={`modal-content ${className}`}>{children}</div>
+        <StyledModal className={`${position} ${className}`}>
+            <div ref={modalRef} className={`modal ${position}`}>
+                <div className="modal-header">
+                    <button className="close-modal-button" onClick={onClose}>
+                        X
+                    </button>
                 </div>
+                <div className="modal-content">{children}</div>
             </div>
         </StyledModal>
     );
 };
-
-// export default Modal;
