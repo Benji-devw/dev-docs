@@ -4,7 +4,7 @@
     },
     "name": "@benji-devw/dev-docs",
     "private": false,
-    "version": "0.0.9",
+    "version": "0.1.0",
     "keywords": ["react", "vite", "typescript", "modal", "styled-components"],
     "author": "Ben",
     "license": "MIT",
@@ -15,7 +15,8 @@
     "exports": {
         ".": {
           "import": "./dist/index.es.js",
-          "require": "./dist/index.cjs.js"
+          "require": "./dist/index.cjs.js",
+          "types": "./dist/index.d.ts"
         }
       },
     "files": [
