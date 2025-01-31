@@ -26,7 +26,7 @@ function App() {
                         Open Middle Modal
                     </button>
                     {isOpen && (
-                        <Modal onClose={closeModal} className="" position="right">
+                        <Modal onClose={closeModal} position="right">
                             <h1>Middle Modal</h1>
                             <p>Middle Modal content</p>
                         </Modal>
