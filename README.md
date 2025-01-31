@@ -3,9 +3,20 @@
 - [https://www.npmjs.com/](#https://www.npmjs.com/package/@benji-devw/dev-docs?activeTab=readme) ...@benji-devw/dev-docs
 - [https://github.com/](#https://github.com/Benji-devw/dev-docs/pkgs/npm/dev-docs) ...pkgs/npm/dev-docs
 
-# Basic exemples
+## Installation
+```bash
+npm install @benji-devw/dev-docs
+```
 
+## Import
 ```js
+import { Modal } from '@benji-devw/dev-docs';
+```
+
+# Exemples
+```js
+import { Modal } from '@benji-devw/dev-docs';
+
 export const Index = () => {
     const [openModal, setOpenModal] = useState(false);
     const closeModal = () => {
@@ -14,6 +25,7 @@ export const Index = () => {
     return (
         <>
             {openModal && (
+                // position: 'center' | 'left' | 'right'
                 <Modal onClose={closeModal} className="modal" position="center">
                     <h1>Title</h1>
                     <p>Content</p>
@@ -25,3 +37,5 @@ export const Index = () => {
 };
 ```
 
+## Todo
+- [x] Améliorer la gestion du style
