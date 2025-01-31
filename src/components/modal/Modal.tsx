@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 type ModalProps = {
     children: React.ReactNode;
-    className?: string;
     position?: "center" | "right" | "left";
     onClose?: () => void;
-    customStyles?: string;
 };
 
 const StyledModal = styled.div<ModalProps>`
@@ -38,7 +36,7 @@ const StyledModal = styled.div<ModalProps>`
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
         width: 90%;
         max-width: 40rem;
-        ${(props) => props.customStyles && css`${props.customStyles}`}
+        margin: 1rem
     }
     .modal-init.right,
     .modal-init.left {
@@ -66,11 +64,11 @@ const StyledModal = styled.div<ModalProps>`
  *
  * @param {ModalProps} props - The properties for the Modal component.
  * @param {React.ReactNode} props.children - The content to be displayed inside the modal.
- * @param {string} [props.className] - Additional class names to apply to the modal.
+ * @param {string} [props.customstyles] - Additional class names to apply to the modal.
  * @param {string} [props.position="center"] - The position of the modal (e.g., "center", "top", "bottom").
  * @param {() => void} [props.onClose] - Callback function to be called when the modal is closed.
  */
-export const Modal: React.FC<ModalProps> = ({ children, className, position = "center", onClose, customStyles }) => {
+export const Modal: React.FC<ModalProps> = ({ children, position, onClose }) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
     const handleClickOutside = React.useCallback(
@@ -90,8 +88,8 @@ export const Modal: React.FC<ModalProps> = ({ children, className, position = "c
     }, [handleClickOutside]);
 
     return (
-        <StyledModal customStyles={customStyles}>
-            <div ref={modalRef} className={`modal-init ${position} ${className}`}>
+        <StyledModal>
+            <div ref={modalRef} className={`modal-init ${position}`}>
                 <div className="modal-header">
                     <button className="close-modal-button" onClick={onClose}>
                         X

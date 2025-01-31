@@ -26,8 +26,8 @@ export const Index = () => {
         <>
             {openModal && (
                 // position: 'center' | 'left' | 'right'
-                <Modal onClose={closeModal} className="modal" position="center">
-                    <h1>Title</h1>
+                <Modal onClose={closeModal} position="center">
+                    <h2>Title</h2>
                     <p>Content</p>
                 </Modal>
             )}
