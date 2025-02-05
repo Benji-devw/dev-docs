@@ -5,7 +5,7 @@ import "./App.css";
 import { Modal } from "./components/modal/Modal";
 
 function App() {
-    const [isOpen, setIsopen] = useState(true);
+    const [isOpen, setIsopen] = useState(false);
     const closeModal = () => {
         setIsopen(false);
     };
@@ -26,7 +26,7 @@ function App() {
                         Open Middle Modal
                     </button>
                     {isOpen && (
-                        <Modal onClose={closeModal} position="right">
+                        <Modal onClose={closeModal} position="center">
                             <h1>Middle Modal</h1>
                             <p>Middle Modal content</p>
                         </Modal>
