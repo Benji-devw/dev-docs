@@ -5,7 +5,7 @@ import "./App.css";
 import { Modal } from "./components/modal/Modal";
 
 function App() {
-    const [isOpen, setIsopen] = useState(false);
+    const [isOpen, setIsopen] = useState(true);
     const closeModal = () => {
         setIsopen(false);
     };

@@ -20,6 +20,10 @@ const StyledModal = styled.div<ModalProps>`
     &.center {
         justify-content: center;
         align-items: center;
+        .modal-init {
+            height: 50%;
+            width: 70%;
+        }
     }
     &.right {
         justify-content: flex-end;
@@ -36,13 +40,12 @@ const StyledModal = styled.div<ModalProps>`
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
         width: 90%;
         max-width: 40rem;
-        margin: 1rem
+        height: 100%;
+        width: 30%;
+        max-width: none;
     }
     .modal-init.right,
     .modal-init.left {
-        height: 100%;
-        max-width: none;
-        width: 30%;
     }
     .modal-header {
         display: flex;
@@ -88,8 +91,8 @@ export const Modal: React.FC<ModalProps> = ({ children, position, onClose }) => 
     }, [handleClickOutside]);
 
     return (
-        <StyledModal>
-            <div ref={modalRef} className={`modal-init ${position}`}>
+        <StyledModal className={`${position}`}>
+            <div ref={modalRef} className={`modal-init`}>
                 <div className="modal-header">
                     <button className="close-modal-button" onClick={onClose}>
                         X
